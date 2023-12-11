@@ -15,6 +15,7 @@ require("./app/routes/user.routes")(app);
 require("./app/routes/file.routes")(app);
 require("./app/routes/admin.routes")(app);
 require("./app/routes/category.routes")(app);
+require("./app/routes/product.routes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, ()=>{

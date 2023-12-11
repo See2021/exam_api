@@ -7,6 +7,7 @@ const fs = require("fs");
 
 const User = function (Users) {
   this.admin_id = Users.admin_id;
+  this.username = Users.username;
   this.fullname = Users.fullname;
   this.email = Users.email;
   this.password = Users.password;
@@ -53,9 +54,10 @@ User.checkUsername = (fullname, result) => {
 
 User.create = (newUser, result) => {
   sql.query(
-    "INSERT INTO Users (admin_id, fullname, email, password, img) VALUES (?, ?, ?, ?, ?)",
+    "INSERT INTO Users (admin_id, username, fullname, email, password, img) VALUES (?, ?, ?, ?, ?, ?)",
     [
       newUser.admin_id,
+      newUser.username,
       newUser.fullname,
       newUser.email,
       newUser.password,
@@ -122,6 +124,7 @@ User.getAllRecords = (result) => {
   });
 };
 
+//const, var, let => function scope
 const removeOldImage = (id, result) => {
   sql.query("SELECT * FROM Users WHERE id=?", [id], (err, res)=>{
       if(err){

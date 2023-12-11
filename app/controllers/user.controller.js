@@ -45,6 +45,7 @@ const createNewUser = (req, res) => {
   }
   const userObj = new User({
     admin_id: req.body.admin_id,
+    username: req.body.username,
     fullname: req.body.fullname,
     email: req.body.email,
     password: req.body.password,
